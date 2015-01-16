@@ -1,7 +1,7 @@
 #include "Nonogrammap.h"
 
 
-Nonogrammap::Nonogrammap(unsigned int mapHeight, unsigned int mapWidth)
+Nonogrammap::Nonogrammap(int mapHeight, int mapWidth)
 {
 	height = mapHeight;
 	width = mapWidth;
@@ -9,12 +9,12 @@ Nonogrammap::Nonogrammap(unsigned int mapHeight, unsigned int mapWidth)
 
 	column.resize(width);
 	
-	for (unsigned i = 0; i < width; i++)
+	for (int i = 0; i < width; i++)
 	{
 		std::vector<state> tempRow;
 		tempRow.resize(height);
 
-		for (unsigned j = 0; j < height; j++)
+		for (int j = 0; j < height; j++)
 		{
 			int tempMember = rand() % 2;
 			tempRow.at(j) = (state)tempMember;
@@ -23,40 +23,114 @@ Nonogrammap::Nonogrammap(unsigned int mapHeight, unsigned int mapWidth)
 		column.at(i) = tempRow;
 	}
 
-	for (unsigned int i = 0; i < height; i++)
-	{
-		for (unsigned int j = 0; j < width; j++)
-		{
-			coordinate* tempCoord = new coordinate;
+	borderHeight = 0;
+	borderWidth = 0;
 
-			tempCoord->state = BLANK;
-			tempCoord->x = j;
-			tempCoord->y = i;
-
-			coordinates.push_back(tempCoord);
-		}
-	}
-};
-
-Nonogrammap::~Nonogrammap()
-{
-	clearMap();
-}
-
-void Nonogrammap::clearMap()
-{
-	std::vector<coordinate*>::iterator it;
-
-	for (it = coordinates.begin(); it != coordinates.end(); it++)
-	{
-		delete (*it);
-	}
-}
-
-void Nonogrammap::print()
-{
 	for (int i = 0; i < height; i++)
 	{
+		std::vector<int> tempRow;
+
+		int tempXCount = 0;
+
+		for (int j = 0; j < width; j++)
+		{
+			if (column.at(j).at(i) == FILLED)
+			{
+				tempXCount++;
+			}
+			else if (tempXCount != 0)
+			{
+				tempRow.push_back(tempXCount);
+				tempXCount = 0;
+			}
+		}
+		
+		if (tempXCount != 0)
+		{
+			tempRow.push_back(tempXCount);
+			tempXCount = 0;
+		}
+
+		if (tempRow.size() > borderWidth)
+			borderWidth = tempRow.size();
+
+		leftBorder.push_back(tempRow);
+	}
+
+	for (int i = 0; i < width; i++)
+	{
+		std::vector<int> tempColumn;
+
+		int tempYCount = 0;
+
+		for (int j = 0; j < height; j++)
+		{
+			int a = 0;
+
+			if (column.at(i).at(j) == FILLED)
+			{
+				tempYCount++;
+			}
+			else if (tempYCount != 0)
+			{
+				tempColumn.push_back(tempYCount);
+				tempYCount = 0;
+			}
+		}
+
+		if (tempYCount != 0)
+		{
+			tempColumn.push_back(tempYCount);
+			tempYCount = 0;
+		}
+
+		if (tempColumn.size() > borderHeight)
+			borderHeight = tempColumn.size();
+
+		topBorder.push_back(tempColumn);
+	}
+	
+	for (int i = 0; i < leftBorder.size(); i++)
+		leftBorder.at(i).resize(borderWidth);
+
+	for (int i = 0; i < topBorder.size(); i++)
+		topBorder.at(i).resize(borderHeight);
+
+};
+
+void Nonogrammap::printAnswer()
+{
+	for (int i = 0; i < borderHeight; i++)
+	{
+		for (int j = 0; j < borderWidth; j++)
+			printf("  ");
+		printf(" ");
+
+		for (int b = 0; b < width; b++)
+		{
+			if (topBorder.at(b).at(i) != 0)
+				printf("%i", topBorder.at(b).at(i));
+			else
+				printf(" ");
+		}
+		printf("\n");
+	}
+	printf("\n");
+
+	for (int i = 0; i < height; i++)
+	{		
+		for (int b = 0; b < borderWidth; b++)
+		{
+			if (leftBorder.at(i).at(b) != 0)
+				printf("%i", leftBorder.at(i).at(b));
+			else
+				printf(" ");
+			printf(" ");
+		}
+		
+		
+		printf(" ");
+
 		for (int j = 0; j < width; j++)
 		{
 			char tempChar;
@@ -64,16 +138,16 @@ void Nonogrammap::print()
 
 			switch (tempState)
 			{
-				case BLANK:
-					tempChar = ' ';
+				case FILLED:
+					tempChar = 'O';
 					break;
 
 				case EMPTY:
-					tempChar = 'X';
+					tempChar = ' ';
 					break;
-
-				case FILLED:
-					tempChar = 'O';
+					
+				case BLANK:
+					tempChar = '.';
 					break;
 
 				default:

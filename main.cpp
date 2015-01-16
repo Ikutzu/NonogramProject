@@ -2,9 +2,9 @@
 
 int main()
 {
-	Nonogrammap test(5, 5);
+	Nonogrammap test(20, 20);
 	
-	test.print();
+	test.printAnswer();
 
 	system("PAUSE");
 	return 0;

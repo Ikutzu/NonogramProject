@@ -12,33 +12,27 @@ class Nonogrammap
 		BLANK
 	};
 
-	struct coordinate
-	{
-		state state;
-		unsigned int x, y;
-	};
-
 public:
 	
-	Nonogrammap(unsigned int mapHeight, unsigned int mapWidth);
-	~Nonogrammap();
+	Nonogrammap(int mapHeight, int mapWidth);
 
 	unsigned int getCount();
 	unsigned int getHeight();
 	unsigned int getWidth();
 
 	void clearMap();
-	void print();
+	void printAnswer();
 	
 
 private:
 	Nonogrammap(){};
 
-	unsigned int coordinateCount;
-	unsigned int height, width;
-
-	std::vector<coordinate*> coordinates;
+	int coordinateCount;
+	int height, width;
+	int borderHeight, borderWidth;
 
 	std::vector<std::vector<state>> column;
+	std::vector<std::vector<int>> leftBorder;
+	std::vector<std::vector<int>> topBorder;
 };
 #endif
