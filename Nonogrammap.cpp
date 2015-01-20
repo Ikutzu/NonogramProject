@@ -161,17 +161,17 @@ void Nonogrammap::printAnswer()
 	}
 }
 
-unsigned int Nonogrammap::getCount()
+int Nonogrammap::getCount()
 {
 	return coordinateCount;
 }
 
-unsigned int Nonogrammap::getHeight()
+int Nonogrammap::getHeight()
 {
 	return height;
 }
 
-unsigned int Nonogrammap::getWidth()
+int Nonogrammap::getWidth()
 {
 	return width;
 }

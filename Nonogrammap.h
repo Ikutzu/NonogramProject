@@ -16,11 +16,10 @@ public:
 	
 	Nonogrammap(int mapHeight, int mapWidth);
 
-	unsigned int getCount();
-	unsigned int getHeight();
-	unsigned int getWidth();
+	int getCount();
+	int getHeight();
+	int getWidth();
 
-	void clearMap();
 	void printAnswer();
 	
 

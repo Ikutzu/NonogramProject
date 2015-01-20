@@ -2,7 +2,7 @@
 
 int main()
 {
-	Nonogrammap test(20, 20);
+	Nonogrammap test(22, 22);
 	
 	test.printAnswer();
 
