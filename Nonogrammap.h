@@ -3,14 +3,14 @@
 
 #include <vector>
 
-
-class Nonogrammap
-{
 	enum state{
 		FILLED,
 		EMPTY,
 		BLANK
 	};
+
+class Nonogrammap
+{
 
 public:
 	
@@ -19,6 +19,9 @@ public:
 	int getCount();
 	int getHeight();
 	int getWidth();
+
+	std::vector<std::vector<int>> getLeftBorder();
+	std::vector<std::vector<int>> getTopBorder();
 
 	void printAnswer();
 	

@@ -66,9 +66,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Nonogrammap.cpp" />
+    <ClCompile Include="NonogramSolver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Nonogrammap.h" />
+    <ClInclude Include="NonogramSolver.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,8 +1,9 @@
 #include "Nonogrammap.h"
-
+#include <time.h>
 
 Nonogrammap::Nonogrammap(int mapHeight, int mapWidth)
 {
+	srand(time(NULL));
 	height = mapHeight;
 	width = mapWidth;
 	coordinateCount = height * width;
@@ -98,6 +99,16 @@ Nonogrammap::Nonogrammap(int mapHeight, int mapWidth)
 
 };
 
+std::vector<std::vector<int>> Nonogrammap::getLeftBorder()
+{
+	return leftBorder;
+}
+
+std::vector<std::vector<int>> Nonogrammap::getTopBorder()
+{
+	return topBorder;
+}
+
 void Nonogrammap::printAnswer()
 {
 	for (int i = 0; i < borderHeight; i++)
@@ -139,7 +150,7 @@ void Nonogrammap::printAnswer()
 			switch (tempState)
 			{
 				case FILLED:
-					tempChar = 'O';
+					tempChar = '#';
 					break;
 
 				case EMPTY:
@@ -147,7 +158,7 @@ void Nonogrammap::printAnswer()
 					break;
 					
 				case BLANK:
-					tempChar = '.';
+					tempChar = 'X';
 					break;
 
 				default:

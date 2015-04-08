@@ -21,9 +21,15 @@
     <ClCompile Include="Nonogrammap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NonogramSolver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Nonogrammap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NonogramSolver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

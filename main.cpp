@@ -2,10 +2,10 @@
 
 int main()
 {
-	Nonogrammap test(22, 22);
+	Nonogrammap test(10, 10);
 	
 	test.printAnswer();
-
 	system("PAUSE");
+
 	return 0;
 }
