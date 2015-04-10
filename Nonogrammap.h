@@ -6,7 +6,7 @@
 	enum state{
 		FILLED,
 		EMPTY,
-		BLANK
+		UNKNOWN
 	};
 
 class Nonogrammap

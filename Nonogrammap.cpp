@@ -157,7 +157,7 @@ void Nonogrammap::printAnswer()
 					tempChar = ' ';
 					break;
 					
-				case BLANK:
+				case UNKNOWN:
 					tempChar = 'X';
 					break;
 

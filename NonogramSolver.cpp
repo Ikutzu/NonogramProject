@@ -22,49 +22,6 @@ void NonogramSolver::solvePuzzle()
 	while (unSolved > 0)
 	{
 
-		for (int x = 0; x < column.size(); x++)
-		{
-
-			int tempY = 0;
-
-			while (tempY < column.at(x).size())
-			{
-				int tempBetween = 0;
-				std::vector<int> tempUnsolvedSeries;
-
-				for (int y = tempY; y < column.at(x).size(); y++)
-				{
-					if (column[x][y] != state::BLANK)
-					{
-						tempY++;
-						tempBetween++;
-						break;
-					}
-					else
-					{
-						tempY++;
-						tempBetween++;
-					}
-				}
-
-				int tempSerialSum = 0;
-				for (int y = 0; y < topBorder.size(); y++)
-				{
-					tempSerialSum += topBorder[x][y];
-					tempUnsolvedSeries.push_back(topBorder[x][y]);
-					if (tempSerialSum > tempBetween)
-						break;
-				}
-
-				CalculateBetween(tempUnsolvedSeries, tempBetween);
-
-			}
-
-
-
-		}
-
-
 	}
 }
 

@@ -19,7 +19,8 @@ private:
 
 	Nonogrammap* puzzle;
 	int unSolved;
-
+	std::vector<std::vector<int>> solvedLeftBorder;
+	std::vector<std::vector<int>> solvedTopBorder;
 	std::vector<std::vector<state>> column;
 
 };

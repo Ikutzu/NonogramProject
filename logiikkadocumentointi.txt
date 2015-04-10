@@ -1,0 +1,35 @@
+1.	lasketaan VARMAT pakosta täyttyvät ruudut (filled) rivi kerrallaan
+	1.1	päivitä omat reunavektorit (solved####Border)
+
+
+
+
+
+
+
+
+2.	vertaillaan omia reunavektoreita mapin omiin reunavektoreihin
+	2.1	vertaillaan serial numeroiden määrää
+		2.1.1	jos omassa reunavektorissa enemmän kuin mapin reunavektorissa (mapin reunavektorissa PITÄÄ olla VAIN YKSI)
+				-> hae ensimmäinen täytetty, jonka jälkeen hae ensimmäinen tyhjä ja täytä seuraavaan täytettyyn asti
+	2.2	päivitä omat reunavektorit (solved####Border)(tarkista myös onko omat samat kuin mapin)
+
+3.	vertaillaan omien reunavektoreiden serial numeroiden arvoja mapin vastaaviin
+	3.1	eka check onko serialien määrä smaa
+		toka check onko mätsääviä serialeja
+		jos on, niin etsii mätsäävän serialin (tietää kuinka mones serial, 
+		skippaa niin monta rypästä) ja sen koordinaatista -1 (katsoo ettei ole <0) asetetaan emptyksi 
+		ja tämän hetkinen koordinaatti + serial arvo (katsoo ettei ole >map width) asetetaan emptyksi 
+		// katsoo jos oma serial on sama kuin mapin serial -> ruksii reunat (pidä huolta ettei ruksita -1) //ja poistaa mapin reunavektorista ettei tarvi tarkistaa enää
+	3.2 vertailee reunavektoreiden arvoja, jos täysin yhtevenät -> rivi ratkaistu -> täytä unknownit emptyillä
+	3.3	päivitä omat reunavektorit (solved####Border)(tarkista myös onko omat samat kuin mapin)
+
+4.	jos vain yksi ratkaisematon oma serial jäljellä: asetetaan kaikki rivillä olevat unknownit emptyiksi,
+	lasketaan mapin serialin ja vastaavan ratkaistun serialin erotus ja etsii kyseisen serialin ryppään
+	ja sen koordinaatista -erotus asetetaan unknowniksi ja samasta koordinaatista + oman serialin arvo asetetaan emptyksi (muista tarkistaa ettei kyseiset koordinaatit ole filled)
+	4.1	päivitä omat reunavektorit (solved####Border)(tarkista myös onko omat samat kuin mapin)
+
+5.	lasketaan ei emptyistä omat ryppäät ja map serialien summa, vähennetään jokaisesta ryppäästä serialien summa, jos jostain erotuksesta tulee <0
+	niin kaikki serialit eivät mahdu samaan ryppääseen -> tarkistetaan mahtuuko serial ryppääseen, lasketaan mahdollisten ryppäiden määrä ja jos
+	mahdollisten ryppäiden määrä == serialien määrä niin lasketaan VARMAT (sama logiikka kun 1. kohta)
+	5.1 päivitä omat reunavektorit (solved####Border) (tarkista myös onko omat samat kuin mapin)
