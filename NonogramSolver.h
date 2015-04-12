@@ -17,6 +17,9 @@ private:
 	void CalculateBetween(std::vector<int> unsolvedSeries, int between);
 	int AddUpSeries(std::vector<int> series, int currentSerial);
 
+	std::vector<std::vector<int>> leftBorder;
+	std::vector<std::vector<int>> topBorder;
+
 	Nonogrammap* puzzle;
 	int unSolved;
 	std::vector<std::vector<int>> solvedLeftBorder;

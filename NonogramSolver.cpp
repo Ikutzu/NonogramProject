@@ -5,22 +5,26 @@ NonogramSolver::NonogramSolver(Nonogrammap* puzzleToSolve)
 {
 	puzzle = puzzleToSolve;
 	unSolved = puzzle->getCount();
+	
+	for (int x = 0; x < puzzle->getWidth(); x++)
+	{
+		std::vector<state> tempRow;
+		for (int y = 0; y < puzzle->getHeight(); x++)
+		{
+			tempRow.push_back(UNKNOWN);
+		}
+		column.push_back(tempRow);
+	}
 }
 
 void NonogramSolver::solvePuzzle()
 {
-	std::vector<std::vector<int>> leftBorder = puzzle->getLeftBorder();
-	std::vector<std::vector<int>> topBorder = puzzle->getTopBorder();
-	
-	column.resize(puzzle->getWidth());
-	for (int x = 0; x < puzzle->getWidth(); x++)
-	{
-		column.at(x).resize(puzzle->getHeight());
-	}
-	
-	
+	//laske varmat
 	while (unSolved > 0)
 	{
+
+	
+	
 
 	}
 }
