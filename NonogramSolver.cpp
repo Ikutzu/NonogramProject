@@ -19,10 +19,36 @@ NonogramSolver::NonogramSolver(Nonogrammap* puzzleToSolve)
 
 void NonogramSolver::solvePuzzle()
 {
-	//laske varmat
+	// 1. laske varmat
+
+	//päivitä reunavektorit
+
 	while (unSolved > 0)
 	{
+		// 2. vertaile serialien määrää
+			// hae ensimmäinen täytetty jonka jälkeen hae ensimmäinen tyhjä ja täytä
+			// seruaavaan täytettyyn asti
 
+		//päivitä reunavektorit
+		
+		// 3. vartaile omien reunavektoreiden serial arvoja mapin vastaaviin
+			// onko määrä sama? tai onko oma serial arvo sama kuin mapin isoin serial arvo
+			// onko samoja serialeja (samassa kohdassa)?
+				// aseta reunat EMPTYksi (tarkista ettei mapin ulkopuolella)
+		
+		// päivitä reunavektorit
+
+		// 4. jos omien ja mapin serialien määrä sama, ja omia serialeja vain yksi ratkaisematta
+			// kokorivin UNKNOWNit -> EMPTY. 
+			// laske mapin serial - oma serial = erotus
+			// etsi serialia vastaava rypäs, ensimmäinen FILLED ja sen koordinaatti ( X ) minus erotus 
+			// välinen alue asetetaan UNKNOWN, viimeinen FILLED koordinaatti ja X + map serial 
+			// välinen alue asetetaan UNKNOWN
+			// muista tarkistaa ettei mennä vektori rajojen ulkopuolelle
+
+		// päivitä reunavektorit
+
+		// 5. pitäis miettiä logiikka uusiksi ja tarkemmin niin että se toimii aina eikä tuu virheitä
 	
 	
 
