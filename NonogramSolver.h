@@ -10,18 +10,23 @@ class NonogramSolver
 {
 public:
 	NonogramSolver(Nonogrammap* puzzleToSolve);
-	void solvePuzzle();
-
+	void SolvePuzzle();
+	void PrintSolution();
+	
 private:
-
-	void CalculateBetween(std::vector<int> unsolvedSeries, int between);
+	
+	void CalculateUndisputed();
+	void FillUnknownsBetweenFilled();
 	int AddUpSeries(std::vector<int> series, int currentSerial);
+	void UpdateBorders();
+	void FindEmpty();
+
 
 	std::vector<std::vector<int>> leftBorder;
 	std::vector<std::vector<int>> topBorder;
 
 	Nonogrammap* puzzle;
-	int unSolved;
+	int unsolved;
 	std::vector<std::vector<int>> solvedLeftBorder;
 	std::vector<std::vector<int>> solvedTopBorder;
 	std::vector<std::vector<state>> column;

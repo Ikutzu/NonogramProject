@@ -19,6 +19,12 @@ public:
 	int getCount();
 	int getHeight();
 	int getWidth();
+	int getBorderWidth(){
+		return borderWidth;
+	}
+	int getBorderHeight(){
+		return borderHeight;
+	}
 
 	std::vector<std::vector<int>> getLeftBorder();
 	std::vector<std::vector<int>> getTopBorder();

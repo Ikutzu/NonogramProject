@@ -135,7 +135,8 @@ void Nonogrammap::printAnswer()
 			if (leftBorder.at(i).at(b) != 0)
 				printf("%i", leftBorder.at(i).at(b));
 			else
-				printf(" ");
+				if (leftBorder[i][b] < 10)
+					printf(" ");
 			printf(" ");
 		}
 		
@@ -154,7 +155,7 @@ void Nonogrammap::printAnswer()
 					break;
 
 				case EMPTY:
-					tempChar = ' ';
+					tempChar = '-';
 					break;
 					
 				case UNKNOWN:
@@ -170,6 +171,7 @@ void Nonogrammap::printAnswer()
 
 		printf("\n");
 	}
+	printf("\n");
 }
 
 int Nonogrammap::getCount()
